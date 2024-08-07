@@ -5,19 +5,7 @@
 
 <form action="{{ route('send-email') }}" method="post">
     @csrf
-    <div class="row mt-5">
-        <div class="col">
-            <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01">Kirim Emal From</label>
-                <select class="form-select" id="inputGroupSelect01" name="from">
-                    <option value="adit">aditri@sinergisertifikasi.com</option>
-                    <option value="lukman">lukman@sinergisertifikasi.com</option>
-                </select>
-            </div>
 
-        </div>
-        <div class="col"></div>
-    </div>
     <div class="row mt-5">
         <div class="col">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addData">
@@ -44,7 +32,7 @@
                     <th>Jenis Usaha</th>
                     <th>Alamat</th>
                     <th>Email</th>
-                    <th>No. Tlp</th>
+                    <th>No. Telp</th>
                     <th>Last Send Email</th>
                     <th>Action</th>
 
@@ -117,7 +105,8 @@
                     </div>
                     <div class="form-group">
                         <label for="jenis_usaha">Jenis Usaha</label>
-                        <input type="text" class="form-control" id="jenis_usaha" name="jenis_usaha" placeholder="Jenis Usaha" />
+                        <input type="text" class="form-control" id="jenis_usaha" name="jenis_usaha"
+                            placeholder="Jenis Usaha" />
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
@@ -172,7 +161,11 @@
 
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 <script>
+    $('form').submit(function() {
+        $('.loading').show();
+    });
     $(document).ready(function() {
+        $('.loading').hide();
         $("#example").DataTable({
             processing: true,
             serverSide: true,
@@ -197,8 +190,8 @@
                     name: "email"
                 },
                 {
-                    data: "no_tlp",
-                    name: "no_tlp",
+                    data: "no_telp",
+                    name: "no_telp",
                     orderable: false,
                     searchable: false,
                 },

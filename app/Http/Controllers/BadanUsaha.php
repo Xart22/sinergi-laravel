@@ -15,8 +15,7 @@ class BadanUsaha extends Controller
      */
     public function index()
     {
-        $data = ModelsBadanUsaha::all();
-        return view('index', compact('data'));
+        return view('index');
     }
 
     public function getBadanUsaha(Request $request)
@@ -33,20 +32,27 @@ class BadanUsaha extends Controller
         $columnSortOrder = $order[0]['dir'];
         $searchValue = $search['value'];
 
-        $totalRecords =  ModelsBadanUsaha::count();
-        $totalRecordswithFilter = ModelsBadanUsaha::where('nama', 'like', '%' . $searchValue . '%')
-            ->orWhere('email', 'like', '%' . $searchValue . '%')
-            ->orWhere('jenis_usaha', 'like', '%' . $searchValue . '%')
+        // Total records
+        $totalRecords = ModelsBadanUsaha::count();
+
+
+        $totalRecordswithFilter = ModelsBadanUsaha::where(function ($query) use ($searchValue) {
+            $query->where('nama', 'like', '%' . $searchValue . '%')
+                ->orWhere('email', 'like', '%' . $searchValue . '%')
+                ->orWhere('jenis_usaha', 'like', '%' . $searchValue . '%');
+        })->where('status_email', true)
             ->count();
 
-        $records = ModelsBadanUsaha::orderBy($columnName, $columnSortOrder)
-            ->where('nama', 'like', '%' . $searchValue . '%')
-            ->orWhere('email', 'like', '%' . $searchValue . '%')
-            ->orWhere('jenis_usaha', 'like', '%' . $searchValue . '%')
+
+        $records = ModelsBadanUsaha::where(function ($query) use ($searchValue) {
+            $query->where('nama', 'like', '%' . $searchValue . '%')
+                ->orWhere('email', 'like', '%' . $searchValue . '%')
+                ->orWhere('jenis_usaha', 'like', '%' . $searchValue . '%');
+        })->where('status_email', true)
+            ->orderBy($columnName, $columnSortOrder)
             ->skip($start)
             ->take($length)
             ->get();
-
 
         return response()->json([
             "draw" => intval($draw),
