@@ -15,7 +15,7 @@ class BadanUsaha extends Controller
      */
     public function index()
     {
-        return view('index');
+        return view('emails.index');
     }
 
     public function getBadanUsaha(Request $request)
