@@ -58,13 +58,13 @@
                     <h1
                         class="md:text-2xl text-md font-semibold mb-2 text-[#13554D] md:text-pretty"
                     >
-                        Sertifikat Kompetensi Kerja / SKK
+                        Sertifikat Kompetensi Kerja ( SKK )
                     </h1>
                     <p class="text-gray-600 text-xs md:text-base text-wrap">
                         Kami menyediakan layanan pengurusan Kami menyediakan
                         layanan pembuatan dan perpanjangan Sertifikat Kompetensi
-                        Kerja / SKK bagi tenaga ahli, memastikan kompetensi yang
-                        diakui dan siap mendukung proyek konstruksi.
+                        Kerja ( SKK ) bagi tenaga ahli, memastikan kompetensi
+                        yang diakui dan siap mendukung proyek konstruksi.
                     </p>
                 </div>
             </div>

@@ -281,182 +281,247 @@
     </div>
 </div>
 
-<div class="container mx-auto p-3">
-    <div class="mb-4 border-b border-gray-200 dark:border-gray-700 md:hidden">
-        <ul
-            class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
-            id="tabs-example"
-            role="tablist"
-        >
-            <li class="me-2" role="presentation">
-                <button
-                    class="inline-block rounded-t-lg border border-transparent p-4 hover:border-gold hover:text-gray-600"
-                    id="skk"
-                    type="button"
-                    role="tab"
-                    aria-controls="dashboard-example"
-                    aria-selected="false"
-                >
-                    SKK
-                </button>
-            </li>
+<div class="mx-auto max-w-5xl p-3">
+    <!-- Tabs (Mobile) -->
+    <div class="md:hidden">
+        <div class="relative">
+            <!-- subtle bottom border -->
+            <div
+                class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent dark:via-gray-700"
+            ></div>
 
-            <li role="presentation">
-                <button
-                    class="inline-block rounded-t-lg border border-transparent p-4 hover:border-gold hover:text-gray-600"
-                    id="skttk"
-                    type="button"
-                    role="tab"
-                    aria-controls="contacts-example"
-                    aria-selected="false"
-                >
-                    SKTTK
-                </button>
-            </li>
-            <li role="presentation">
-                <button
-                    class="inline-block rounded-t-lg border border-transparent p-4 hover:border-gold hover:text-gray-600"
-                    id="smk3"
-                    type="button"
-                    role="tab"
-                    aria-controls="contacts-example"
-                    aria-selected="false"
-                >
-                    K3 / SMK3
-                </button>
-            </li>
+            <ul
+                id="tabs"
+                role="tablist"
+                class="flex snap-x snap-mandatory gap-2 overflow-x-auto pb-1 text-sm font-medium text-gray-500 dark:text-gray-400 [scrollbar-width:none]"
+                style="-ms-overflow-style: none"
+            >
+                <!-- each button: data-target -> panel id -->
+                <li class="shrink-0 snap-start">
+                    <button
+                        id="tab-skk"
+                        data-target="panel-skk"
+                        role="tab"
+                        aria-controls="panel-skk"
+                        aria-selected="true"
+                        class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
+                    >
+                        <span>SKK</span>
+                        <span
+                            class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
+                        ></span>
+                    </button>
+                </li>
+                <li class="shrink-0 snap-start">
+                    <button
+                        id="tab-skttk"
+                        data-target="panel-skttk"
+                        role="tab"
+                        aria-controls="panel-skttk"
+                        aria-selected="false"
+                        class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
+                    >
+                        <span>SKTTK</span>
+                        <span
+                            class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
+                        ></span>
+                    </button>
+                </li>
+                <li class="shrink-0 snap-start">
+                    <button
+                        id="tab-smk3"
+                        data-target="panel-smk3"
+                        role="tab"
+                        aria-controls="panel-smk3"
+                        aria-selected="false"
+                        class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
+                    >
+                        <span>K3 / SMK3</span>
+                        <span
+                            class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
+                        ></span>
+                    </button>
+                </li>
+                <li class="shrink-0 snap-start">
+                    <button
+                        id="tab-sbu"
+                        data-target="panel-sbu"
+                        role="tab"
+                        aria-controls="panel-sbu"
+                        aria-selected="false"
+                        class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
+                    >
+                        <span>SBU LPJK</span>
+                        <span
+                            class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
+                        ></span>
+                    </button>
+                </li>
+                <li class="shrink-0 snap-start">
+                    <button
+                        id="tab-sbujptl"
+                        data-target="panel-sbujptl"
+                        role="tab"
+                        aria-controls="panel-sbujptl"
+                        aria-selected="false"
+                        class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
+                    >
+                        <span>SBUJPTL</span>
+                        <span
+                            class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
+                        ></span>
+                    </button>
+                </li>
+                <li class="shrink-0 snap-start">
+                    <button
+                        id="tab-iso"
+                        data-target="panel-iso"
+                        role="tab"
+                        aria-controls="panel-iso"
+                        aria-selected="false"
+                        class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
+                    >
+                        <span>ISO</span>
+                        <span
+                            class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
+                        ></span>
+                    </button>
+                </li>
+            </ul>
+        </div>
 
-            <li class="me-2" role="presentation">
-                <button
-                    class="inline-block rounded-t-lg border border-transparent p-4 hover:border-gold hover:text-gray-600"
-                    id="sbu"
-                    type="button"
-                    role="tab"
-                    aria-controls="settings-example"
-                    aria-selected="false"
+        <!-- Panels -->
+        <div id="tab-panels" class="mt-3 space-y-2">
+            <div
+                id="panel-skk"
+                role="tabpanel"
+                aria-labelledby="tab-skk"
+                class="tab-panel rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
+            >
+                <p
+                    class="text-sm leading-relaxed text-gray-700 dark:text-gray-300"
                 >
-                    SBU LPJK
-                </button>
-            </li>
-            <li role="presentation">
-                <button
-                    class="inline-block rounded-t-lg border border-transparent p-4 hover:border-gold hover:text-gray-600"
-                    id="sbujptl"
-                    type="button"
-                    role="tab"
-                    aria-controls="contacts-example"
-                    aria-selected="false"
+                    Konten SKK. Jelaskan layanan, syarat, timeline, dan CTA
+                    singkat.
+                </p>
+            </div>
+
+            <div
+                id="panel-skttk"
+                role="tabpanel"
+                aria-labelledby="tab-skttk"
+                class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
+            >
+                <p
+                    class="text-sm leading-relaxed text-gray-700 dark:text-gray-300"
                 >
-                    SBUJPTL
-                </button>
-            </li>
-            <li class="me-2" role="presentation">
-                <button
-                    class="inline-block rounded-t-lg border border-transparent p-4 hover:border-gold hover:text-gray-600"
-                    id="iso"
-                    type="button"
-                    role="tab"
-                    aria-controls="profile-example"
-                    aria-selected="false"
+                    Konten SKTTK. Tambahkan highlight benefit dan proses
+                    pengajuan.
+                </p>
+            </div>
+
+            <div
+                id="panel-smk3"
+                role="tabpanel"
+                aria-labelledby="tab-smk3"
+                class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
+            >
+                <p
+                    class="text-sm leading-relaxed text-gray-700 dark:text-gray-300"
                 >
-                    ISO
-                </button>
-            </li>
-        </ul>
-    </div>
-    <div id="tabContentExample" class="md:hidden">
-        <div
-            class="hidden rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
-            id="profile-example"
-            role="tabpanel"
-            aria-labelledby="iso"
-        >
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-                This is some placeholder content the
-                <strong class="font-medium text-gray-800 dark:text-white"
-                    >Profile tab's associated content</strong
-                >. Clicking another tab will toggle the visibility of this one
-                for the next. The tab JavaScript swaps classes to control the
-                content visibility and styling.
-            </p>
-        </div>
-        <div
-            class="hidden rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
-            id="dashboard-example"
-            role="tabpanel"
-            aria-labelledby="skk"
-        >
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-                This is some placeholder content the
-                <strong class="font-medium text-gray-800 dark:text-white"
-                    >Dashboard tab's associated content</strong
-                >. Clicking another tab will toggle the visibility of this one
-                for the next. The tab JavaScript swaps classes to control the
-                content visibility and styling.
-            </p>
-        </div>
-        <div
-            class="hidden rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
-            id="settings-example"
-            role="tabpanel"
-            aria-labelledby="sbu"
-        >
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-                This is some placeholder content the
-                <strong class="font-medium text-gray-800 dark:text-white"
-                    >Settings tab's associated content</strong
-                >. Clicking another tab will toggle the visibility of this one
-                for the next. The tab JavaScript swaps classes to control the
-                content visibility and styling.
-            </p>
-        </div>
-        <div
-            class="hidden rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
-            id="contacts-example"
-            role="tabpanel"
-            aria-labelledby="smk3"
-        >
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-                This is some placeholder content the
-                <strong class="font-medium text-gray-800 dark:text-white"
-                    >Contacts tab's associated content</strong
-                >. Clicking another tab will toggle the visibility of this one
-                for the next. The tab JavaScript swaps classes to control the
-                content visibility and styling.
-            </p>
-        </div>
-        <div
-            class="hidden rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
-            id="contacts-example"
-            role="tabpanel"
-            aria-labelledby="sbujptl"
-        >
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-                This is some placeholder content the
-                <strong class="font-medium text-gray-800 dark:text-white"
-                    >Contacts tab's associated content</strong
-                >. Clicking another tab will toggle the visibility of this one
-                for the next. The tab JavaScript swaps classes to control the
-                content visibility and styling.
-            </p>
-        </div>
-        <div
-            class="hidden rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
-            id="contacts-example"
-            role="tabpanel"
-            aria-labelledby="skttk"
-        >
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-                This is some placeholder content the
-                <strong class="font-medium text-gray-800 dark:text-white"
-                    >Contacts tab's associated content</strong
-                >. Clicking another tab will toggle the visibility of this one
-                for the next. The tab JavaScript swaps classes to control the
-                content visibility and styling.
-            </p>
+                    Konten K3 / SMK3. Sertakan ringkasan standar & audit.
+                </p>
+            </div>
+
+            <div
+                id="panel-sbu"
+                role="tabpanel"
+                aria-labelledby="tab-sbu"
+                class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
+            >
+                <p
+                    class="text-sm leading-relaxed text-gray-700 dark:text-gray-300"
+                >
+                    Konten SBU LPJK. Tuliskan kategori, kualifikasi, dan
+                    estimasi durasi.
+                </p>
+            </div>
+
+            <div
+                id="panel-sbujptl"
+                role="tabpanel"
+                aria-labelledby="tab-sbujptl"
+                class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
+            >
+                <p
+                    class="text-sm leading-relaxed text-gray-700 dark:text-gray-300"
+                >
+                    Konten SBUJPTL. Jelaskan lingkup jasa dan dokumen yang
+                    dibutuhkan.
+                </p>
+            </div>
+
+            <div
+                id="panel-iso"
+                role="tabpanel"
+                aria-labelledby="tab-iso"
+                class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
+            >
+                <p
+                    class="text-sm leading-relaxed text-gray-700 dark:text-gray-300"
+                >
+                    Konten ISO. Cantumkan standar (9001/14001/45001) dan benefit
+                    bisnis.
+                </p>
+            </div>
         </div>
     </div>
 </div>
+
+<!-- Minimal JS (vanilla) untuk toggle tab -->
+<script>
+    (function () {
+        const tabs = document.querySelectorAll("#tabs .tab-btn");
+        const panels = document.querySelectorAll("#tab-panels .tab-panel");
+
+        function activate(targetId) {
+            // de-activate all
+            tabs.forEach((btn) => {
+                btn.setAttribute("aria-selected", "false");
+                btn.classList.remove(
+                    "text-gray-900",
+                    "dark:text-white",
+                    "bg-gray-100",
+                    "dark:bg-gray-700"
+                );
+            });
+            panels.forEach((p) => p.classList.add("hidden"));
+            // activate current
+            const btn = document.querySelector(
+                `#tabs .tab-btn[data-target="${targetId}"]`
+            );
+            const panel = document.getElementById(targetId);
+            if (!btn || !panel) return;
+            btn.setAttribute("aria-selected", "true");
+            btn.classList.add(
+                "text-gray-900",
+                "dark:text-white",
+                "bg-gray-100",
+                "dark:bg-gray-700"
+            );
+            panel.classList.remove("hidden");
+        }
+
+        // click handlers
+        tabs.forEach((btn) => {
+            btn.addEventListener("click", () => activate(btn.dataset.target));
+        });
+
+        // set default (first tab) on load
+        const first = tabs[0];
+        if (first) activate(first.dataset.target);
+    })();
+</script>
 
 <div class="container mx-auto relative p-3">
     <img

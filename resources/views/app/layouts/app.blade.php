@@ -5,9 +5,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {!! SEO::generate() !!}
         @vite(['resources/css/app.css','resources/js/app.js']) @yield('head')
+        <style>
+            .whatsapp-float {
+                position: fixed;
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+                background-color: #25d366;
+                color: #fff;
+                border-radius: 50%;
+                text-align: center;
+                font-size: 30px;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+            }
+
+            .whatsapp-float:hover {
+                transform: scale(1.1);
+                background-color: #1ebe5b;
+            }
+
+            .whatsapp-float img {
+                width: 45px;
+                height: 45px;
+            }
+        </style>
     </head>
 
     <body>
+        <a
+            href="https://wa.me/6281234567890"
+            class="whatsapp-float"
+            target="_blank"
+            aria-label="Chat via WhatsApp"
+        >
+            <img src="{{ asset('assets/images/wa.png') }}" alt="WhatsApp" />
+        </a>
         <nav
             class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600"
         >

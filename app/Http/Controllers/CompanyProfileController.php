@@ -41,4 +41,20 @@ class CompanyProfileController extends Controller
 
         return view('app.company.contact');
     }
+
+    public function skk()
+    {
+        SEOTools::setTitle('Sinergi Sertifikasi');
+        SEOTools::setDescription('This is my page description');
+
+        return view('app.company.services.skk');
+    }
+
+    public function k3()
+    {
+        SEOTools::setTitle('Sinergi Sertifikasi');
+        SEOTools::setDescription('This is my page description');
+
+        return view('app.company.services.k3');
+    }
 }
