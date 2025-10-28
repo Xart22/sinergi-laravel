@@ -18,462 +18,242 @@
         </p>
     </div>
 </div>
-<div class="container mx-auto p-4 md:flex flex-col hidden">
-    <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+
+<div class="mx-auto p-3">
+    <!-- Tabs (Mobile) -->
+
+    <div class="relative">
+        <!-- subtle bottom border -->
+
         <ul
-            class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
-            id="tabs-example"
+            id="tabs"
             role="tablist"
+            class="flex snap-x snap-mandatory gap-2 overflow-x-auto pb-1 text-sm font-medium text-gray-500 dark:text-gray-400 [scrollbar-width:none]"
+            style="-ms-overflow-style: none"
         >
-            <li class="me-2" role="presentation">
+            <!-- each button: data-target -> panel id -->
+            <li class="shrink-0 snap-start">
                 <button
-                    class="inline-block rounded-t-lg border-b-2 border-transparent p-4 hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300"
-                    id="profile-tab-example"
-                    type="button"
+                    id="tab-9001"
+                    data-target="panel-9001"
                     role="tab"
-                    aria-controls="profile-example"
-                    aria-selected="false"
+                    aria-controls="panel-9001"
+                    aria-selected="true"
+                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
                 >
-                    ISO
+                    <span>ISO 9001: 2015 </span>
+                    <span
+                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
+                    ></span>
                 </button>
             </li>
-            <li class="me-2" role="presentation">
+            <li class="shrink-0 snap-start">
                 <button
-                    class="inline-block rounded-t-lg border-b-2 border-transparent p-4 hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300"
-                    id="dashboard-tab-example"
-                    type="button"
+                    id="tab-14001"
+                    data-target="panel-14001"
                     role="tab"
-                    aria-controls="dashboard-example"
+                    aria-controls="panel-14001"
                     aria-selected="false"
+                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
                 >
-                    SKA / SKT
+                    <span>ISO 14001: 2015</span>
+                    <span
+                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
+                    ></span>
                 </button>
             </li>
-            <li class="me-2" role="presentation">
+            <li class="shrink-0 snap-start">
                 <button
-                    class="inline-block rounded-t-lg border-b-2 border-transparent p-4 hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300"
-                    id="settings-tab-example"
-                    type="button"
+                    id="tab-45001"
+                    data-target="panel-45001"
                     role="tab"
-                    aria-controls="settings-example"
+                    aria-controls="panel-45001"
                     aria-selected="false"
+                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
                 >
-                    K3 & SMK3
+                    <span>ISO 45001: 2018 </span>
+                    <span
+                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
+                    ></span>
                 </button>
             </li>
-            <li role="presentation">
+            <li class="shrink-0 snap-start">
                 <button
-                    class="inline-block rounded-t-lg border-b-2 border-transparent p-4 hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300"
-                    id="contacts-tab-example"
-                    type="button"
+                    id="tab-37001"
+                    data-target="panel-37001"
                     role="tab"
-                    aria-controls="contacts-example"
+                    aria-controls="panel-37001"
                     aria-selected="false"
+                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
                 >
-                    SBU LPJK
+                    <span>ISO 37001: 2025 </span>
+                    <span
+                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
+                    ></span>
+                </button>
+            </li>
+            <li class="shrink-0 snap-start">
+                <button
+                    id="tab-22000"
+                    data-target="panel-22000"
+                    role="tab"
+                    aria-controls="panel-22000"
+                    aria-selected="false"
+                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
+                >
+                    <span>ISO 22000: 2018 </span>
+                    <span
+                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
+                    ></span>
+                </button>
+            </li>
+            <li class="shrink-0 snap-start">
+                <button
+                    id="tab-27001"
+                    data-target="panel-27001"
+                    role="tab"
+                    aria-controls="panel-27001"
+                    aria-selected="false"
+                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
+                >
+                    <span>ISO 27001: 2022 </span>
+                    <span
+                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
+                    ></span>
+                </button>
+            </li>
+            <li class="shrink-0 snap-start">
+                <button
+                    id="tab-22301"
+                    data-target="panel-22301"
+                    role="tab"
+                    aria-controls="panel-22301"
+                    aria-selected="false"
+                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
+                >
+                    <span>ISO 22301: 2019 </span>
+                    <span
+                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
+                    ></span>
+                </button>
+            </li>
+            <li class="shrink-0 snap-start">
+                <button
+                    id="tab-20000"
+                    data-target="panel-20000"
+                    role="tab"
+                    aria-controls="panel-20000"
+                    aria-selected="false"
+                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
+                >
+                    <span>ISO/IEC 20000-1:2018 </span>
+                    <span
+                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
+                    ></span>
+                </button>
+            </li>
+            <li class="shrink-0 snap-start">
+                <button
+                    id="tab-50001"
+                    data-target="panel-50001"
+                    role="tab"
+                    aria-controls="panel-50001"
+                    aria-selected="false"
+                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
+                >
+                    <span>ISO 50001: 2018 </span>
+                    <span
+                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
+                    ></span>
+                </button>
+            </li>
+            <li class="shrink-0 snap-start">
+                <button
+                    id="tab-13485"
+                    data-target="panel-13485"
+                    role="tab"
+                    aria-controls="panel-13485"
+                    aria-selected="false"
+                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
+                >
+                    <span>ISO 13485:2016 </span>
+                    <span
+                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
+                    ></span>
                 </button>
             </li>
         </ul>
     </div>
-    <div id="tabContentExample">
+
+    <!-- Panels -->
+    <div id="tab-panels" class="mt-3 space-y-2">
         <div
-            class="hidden rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
-            id="profile-example"
+            id="panel-9001"
             role="tabpanel"
-            aria-labelledby="profile-tab-example"
+            aria-labelledby="tab-9001"
+            class="tab-panel rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
         >
-            <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-                <ul
-                    class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
-                    id="tabs-iso"
-                    role="tablist"
-                >
-                    <li class="me-2" role="presentation">
-                        <button
-                            class="inline-block rounded-t-lg border-b-2 border-transparent p-4 hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300"
-                            id="iso-9001-tab"
-                            type="button"
-                            role="tab"
-                            aria-controls="iso-9001"
-                            aria-selected="false"
-                        >
-                            ISO 9001:2015
-                        </button>
-                    </li>
-                    <li class="me-2" role="presentation">
-                        <button
-                            class="inline-block rounded-t-lg border-b-2 border-transparent p-4 hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300"
-                            id="iso-14001-tab"
-                            type="button"
-                            role="tab"
-                            aria-controls="iso-14001"
-                            aria-selected="false"
-                        >
-                            ISO 14001:2015
-                        </button>
-                    </li>
-                    <li class="me-2" role="presentation">
-                        <button
-                            class="inline-block rounded-t-lg border-b-2 border-transparent p-4 hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300"
-                            id="iso-45001-tab"
-                            type="button"
-                            role="tab"
-                            aria-controls="iso-45001"
-                            aria-selected="false"
-                        >
-                            ISO 45001:2018
-                        </button>
-                    </li>
-                    <li role="presentation">
-                        <button
-                            class="inline-block rounded-t-lg border-b-2 border-transparent p-4 hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300"
-                            id="iso-22000-tab"
-                            type="button"
-                            role="tab"
-                            aria-controls="iso-22000"
-                            aria-selected="false"
-                        >
-                            ISO 22000:2018
-                        </button>
-                    </li>
-                    <li role="presentation">
-                        <button
-                            class="inline-block rounded-t-lg border-b-2 border-transparent p-4 hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300"
-                            id="iso-18001-tab"
-                            type="button"
-                            role="tab"
-                            aria-controls="iso-18001"
-                            aria-selected="false"
-                        >
-                            OHSAS 18001:2007
-                        </button>
-                    </li>
-                </ul>
-            </div>
-            <div id="tabIsoContent">
-                <div
-                    class="hidden rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
-                    id="iso-9001"
-                    role="tabpanel"
-                    aria-labelledby="iso-9001-tab"
-                >
-                    <p class="text-sm text-gray-500 dark:text-gray-400">
-                        This is some placeholder content the
-                        <strong
-                            class="font-medium text-gray-800 dark:text-white"
-                            >Profile tab's associated content</strong
-                        >. Clicking another tab will toggle the visibility of
-                        this one for the next. The tab JavaScript swaps classes
-                        to control the content visibility and styling.
-                    </p>
-                </div>
-                <div
-                    class="hidden rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
-                    id="iso-14001"
-                    role="tabpanel"
-                    aria-labelledby="iso-14001-tab"
-                >
-                    <p class="text-sm text-gray-500 dark:text-gray-400">
-                        This is some placeholder content the
-                        <strong
-                            class="font-medium text-gray-800 dark:text-white"
-                            >Dashboard tab's associated content</strong
-                        >. Clicking another tab will toggle the visibility of
-                        this one for the next. The tab JavaScript swaps classes
-                        to control the content visibility and styling.
-                    </p>
-                </div>
-                <div
-                    class="hidden rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
-                    id="iso-45001"
-                    role="tabpanel"
-                    aria-labelledby="iso-45001-tab"
-                >
-                    <p class="text-sm text-gray-500 dark:text-gray-400">
-                        This is some placeholder content the
-                        <strong
-                            class="font-medium text-gray-800 dark:text-white"
-                            >Settings tab's associated content</strong
-                        >. Clicking another tab will toggle the visibility of
-                        this one for the next. The tab JavaScript swaps classes
-                        to control the content visibility and styling.
-                    </p>
-                </div>
-                <div
-                    class="hidden rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
-                    id="iso-22000"
-                    role="tabpanel"
-                    aria-labelledby="iso-22000-tab"
-                >
-                    <p class="text-sm text-gray-500 dark:text-gray-400">
-                        This is some placeholder content the
-                        <strong
-                            class="font-medium text-gray-800 dark:text-white"
-                            >Contacts tab's associated content</strong
-                        >. Clicking another tab will toggle the visibility of
-                        this one for the next. The tab JavaScript swaps classes
-                        to control the content visibility and styling.
-                    </p>
-                </div>
-                <div
-                    class="hidden rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
-                    id="iso-18001"
-                    role="tabpanel"
-                    aria-labelledby="iso-18001-tab"
-                >
-                    <p class="text-sm text-gray-500 dark:text-gray-400">
-                        This is some placeholder content the
-                        <strong
-                            class="font-medium text-gray-800 dark:text-white"
-                            >Contacts tab's associated content</strong
-                        >. Clicking another tab will toggle the visibility of
-                        this one for the next. The tab JavaScript swaps classes
-                        to control the content visibility and styling.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div
-            class="hidden rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
-            id="dashboard-example"
-            role="tabpanel"
-            aria-labelledby="dashboard-tab-example"
-        >
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-                This is some placeholder content the
-                <strong class="font-medium text-gray-800 dark:text-white"
-                    >Dashboard tab's associated content</strong
-                >. Clicking another tab will toggle the visibility of this one
-                for the next. The tab JavaScript swaps classes to control the
-                content visibility and styling.
+            <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                Konten SKK. Jelaskan layanan, syarat, timeline, dan CTA singkat.
             </p>
         </div>
+
         <div
-            class="hidden rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
-            id="settings-example"
+            id="panel-skttk"
             role="tabpanel"
-            aria-labelledby="settings-tab-example"
+            aria-labelledby="tab-skttk"
+            class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
         >
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-                This is some placeholder content the
-                <strong class="font-medium text-gray-800 dark:text-white"
-                    >Settings tab's associated content</strong
-                >. Clicking another tab will toggle the visibility of this one
-                for the next. The tab JavaScript swaps classes to control the
-                content visibility and styling.
+            <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                Konten SKTTK. Tambahkan highlight benefit dan proses pengajuan.
             </p>
         </div>
+
         <div
-            class="hidden rounded-lg bg-gray-50 p-4 dark:bg-gray-800"
-            id="contacts-example"
+            id="panel-smk3"
             role="tabpanel"
-            aria-labelledby="contacts-tab-example"
+            aria-labelledby="tab-smk3"
+            class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
         >
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-                This is some placeholder content the
-                <strong class="font-medium text-gray-800 dark:text-white"
-                    >Contacts tab's associated content</strong
-                >. Clicking another tab will toggle the visibility of this one
-                for the next. The tab JavaScript swaps classes to control the
-                content visibility and styling.
+            <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                Konten K3 / SMK3. Sertakan ringkasan standar & audit.
             </p>
         </div>
-    </div>
-</div>
 
-<div class="mx-auto max-w-5xl p-3">
-    <!-- Tabs (Mobile) -->
-    <div class="md:hidden">
-        <div class="relative">
-            <!-- subtle bottom border -->
-            <div
-                class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent dark:via-gray-700"
-            ></div>
-
-            <ul
-                id="tabs"
-                role="tablist"
-                class="flex snap-x snap-mandatory gap-2 overflow-x-auto pb-1 text-sm font-medium text-gray-500 dark:text-gray-400 [scrollbar-width:none]"
-                style="-ms-overflow-style: none"
-            >
-                <!-- each button: data-target -> panel id -->
-                <li class="shrink-0 snap-start">
-                    <button
-                        id="tab-skk"
-                        data-target="panel-skk"
-                        role="tab"
-                        aria-controls="panel-skk"
-                        aria-selected="true"
-                        class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
-                    >
-                        <span>SKK</span>
-                        <span
-                            class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
-                        ></span>
-                    </button>
-                </li>
-                <li class="shrink-0 snap-start">
-                    <button
-                        id="tab-skttk"
-                        data-target="panel-skttk"
-                        role="tab"
-                        aria-controls="panel-skttk"
-                        aria-selected="false"
-                        class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
-                    >
-                        <span>SKTTK</span>
-                        <span
-                            class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
-                        ></span>
-                    </button>
-                </li>
-                <li class="shrink-0 snap-start">
-                    <button
-                        id="tab-smk3"
-                        data-target="panel-smk3"
-                        role="tab"
-                        aria-controls="panel-smk3"
-                        aria-selected="false"
-                        class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
-                    >
-                        <span>K3 / SMK3</span>
-                        <span
-                            class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
-                        ></span>
-                    </button>
-                </li>
-                <li class="shrink-0 snap-start">
-                    <button
-                        id="tab-sbu"
-                        data-target="panel-sbu"
-                        role="tab"
-                        aria-controls="panel-sbu"
-                        aria-selected="false"
-                        class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
-                    >
-                        <span>SBU LPJK</span>
-                        <span
-                            class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
-                        ></span>
-                    </button>
-                </li>
-                <li class="shrink-0 snap-start">
-                    <button
-                        id="tab-sbujptl"
-                        data-target="panel-sbujptl"
-                        role="tab"
-                        aria-controls="panel-sbujptl"
-                        aria-selected="false"
-                        class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
-                    >
-                        <span>SBUJPTL</span>
-                        <span
-                            class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
-                        ></span>
-                    </button>
-                </li>
-                <li class="shrink-0 snap-start">
-                    <button
-                        id="tab-iso"
-                        data-target="panel-iso"
-                        role="tab"
-                        aria-controls="panel-iso"
-                        aria-selected="false"
-                        class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
-                    >
-                        <span>ISO</span>
-                        <span
-                            class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
-                        ></span>
-                    </button>
-                </li>
-            </ul>
+        <div
+            id="panel-sbu"
+            role="tabpanel"
+            aria-labelledby="tab-sbu"
+            class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
+        >
+            <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                Konten SBU LPJK. Tuliskan kategori, kualifikasi, dan estimasi
+                durasi.
+            </p>
         </div>
 
-        <!-- Panels -->
-        <div id="tab-panels" class="mt-3 space-y-2">
-            <div
-                id="panel-skk"
-                role="tabpanel"
-                aria-labelledby="tab-skk"
-                class="tab-panel rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
-            >
-                <p
-                    class="text-sm leading-relaxed text-gray-700 dark:text-gray-300"
-                >
-                    Konten SKK. Jelaskan layanan, syarat, timeline, dan CTA
-                    singkat.
-                </p>
-            </div>
+        <div
+            id="panel-sbujptl"
+            role="tabpanel"
+            aria-labelledby="tab-sbujptl"
+            class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
+        >
+            <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                Konten SBUJPTL. Jelaskan lingkup jasa dan dokumen yang
+                dibutuhkan.
+            </p>
+        </div>
 
-            <div
-                id="panel-skttk"
-                role="tabpanel"
-                aria-labelledby="tab-skttk"
-                class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
-            >
-                <p
-                    class="text-sm leading-relaxed text-gray-700 dark:text-gray-300"
-                >
-                    Konten SKTTK. Tambahkan highlight benefit dan proses
-                    pengajuan.
-                </p>
-            </div>
-
-            <div
-                id="panel-smk3"
-                role="tabpanel"
-                aria-labelledby="tab-smk3"
-                class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
-            >
-                <p
-                    class="text-sm leading-relaxed text-gray-700 dark:text-gray-300"
-                >
-                    Konten K3 / SMK3. Sertakan ringkasan standar & audit.
-                </p>
-            </div>
-
-            <div
-                id="panel-sbu"
-                role="tabpanel"
-                aria-labelledby="tab-sbu"
-                class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
-            >
-                <p
-                    class="text-sm leading-relaxed text-gray-700 dark:text-gray-300"
-                >
-                    Konten SBU LPJK. Tuliskan kategori, kualifikasi, dan
-                    estimasi durasi.
-                </p>
-            </div>
-
-            <div
-                id="panel-sbujptl"
-                role="tabpanel"
-                aria-labelledby="tab-sbujptl"
-                class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
-            >
-                <p
-                    class="text-sm leading-relaxed text-gray-700 dark:text-gray-300"
-                >
-                    Konten SBUJPTL. Jelaskan lingkup jasa dan dokumen yang
-                    dibutuhkan.
-                </p>
-            </div>
-
-            <div
-                id="panel-iso"
-                role="tabpanel"
-                aria-labelledby="tab-iso"
-                class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
-            >
-                <p
-                    class="text-sm leading-relaxed text-gray-700 dark:text-gray-300"
-                >
-                    Konten ISO. Cantumkan standar (9001/14001/45001) dan benefit
-                    bisnis.
-                </p>
-            </div>
+        <div
+            id="panel-iso"
+            role="tabpanel"
+            aria-labelledby="tab-iso"
+            class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
+        >
+            <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                Konten ISO. Cantumkan standar (9001/14001/45001) dan benefit
+                bisnis.
+            </p>
         </div>
     </div>
 </div>

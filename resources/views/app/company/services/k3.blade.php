@@ -19,7 +19,7 @@
     </div>
 </div>
 
-<div class="w-full md:w-1/2 p-4 flex flex-col justify-center">
+<div class="w-full p-4 md:w-1/2 mx-auto">
     <h2 class="text-2xl md:text-4xl font-bold text-[#D1AC27] mb-3">
         Solusi K3 & SMK3 yang Praktis, Terukur, dan Lulus Audit
     </h2>

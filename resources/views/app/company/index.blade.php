@@ -114,26 +114,28 @@
             </div>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-lg">
-            <div class="flex items-center">
-                <img
-                    src="{{ asset('assets/images/k3.png') }}"
-                    class="w-20 h-20 object-contain"
-                    alt="SMK3"
-                />
-                <div class="ml-3">
-                    <h1
-                        class="md:text-2xl text-md font-semibold mb-2 text-[#13554D] md:text-pretty"
-                    >
-                        Sertifikasi K3 / SMK3
-                    </h1>
-                    <p class="text-gray-600 text-xs md:text-base text-wrap">
-                        Kami mendukung perusahaan dalam menciptakan Keselamatan
-                        dan kesehatan kerja di lingkungan Anda melalui
-                        sertifikasi K3 dan Sistem Manajemen Kesehatan dan
-                        Keselamatan Kerja (SMK3).
-                    </p>
-                </div>
-            </div>
+            <a href="{{ route('landing.service.k3') }}">
+                <div class="flex items-center">
+                    <img
+                        src="{{ asset('assets/images/k3.png') }}"
+                        class="w-20 h-20 object-contain"
+                        alt="SMK3"
+                    />
+                    <div class="ml-3">
+                        <h1
+                            class="md:text-2xl text-md font-semibold mb-2 text-[#13554D] md:text-pretty"
+                        >
+                            Sertifikasi K3 / SMK3
+                        </h1>
+                        <p class="text-gray-600 text-xs md:text-base text-wrap">
+                            Kami mendukung perusahaan dalam menciptakan
+                            Keselamatan dan kesehatan kerja di lingkungan Anda
+                            melalui sertifikasi K3 dan Sistem Manajemen
+                            Kesehatan dan Keselamatan Kerja (SMK3).
+                        </p>
+                    </div>
+                </div></a
+            >
         </div>
         <div class="bg-white p-6 rounded-lg shadow-lg">
             <div class="flex items-center">

@@ -23,6 +23,7 @@ Route::get('/about', [CompanyProfileController::class, 'about'])->name('landing.
 Route::get('/contact', [CompanyProfileController::class, 'contact'])->name('landing.contact');
 Route::get('/service/skk', [CompanyProfileController::class, 'skk'])->name('landing.service.skk');
 Route::get('/service/k3', [CompanyProfileController::class, 'k3'])->name('landing.service.k3');
+Route::get('/service/iso', [CompanyProfileController::class, 'iso'])->name('landing.service.iso');
 
 Route::prefix('badan-usaha')->group(function () {
     Route::get('/', [BadanUsaha::class, 'index'])->name('home');

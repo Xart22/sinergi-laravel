@@ -112,12 +112,65 @@
                                 >About</a
                             >
                         </li>
-                        <li>
-                            <a
-                                href="{{ route('landing.service') }}"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gold md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                                >Services</a
+                        <li class="relative group">
+                            {{-- 1 Checkbox tak terlihat untuk toggle (tanpa JS) --}}
+                            <input
+                                id="services-toggle"
+                                type="checkbox"
+                                class="peer hidden md:hidden"
+                            />
+
+                            {{-- 2 Tombol/label: mobile = toggle via checkbox; desktop = hover area --}}
+                            <label
+                                for="services-toggle"
+                                class="flex cursor-pointer items-center justify-between py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gold md:p-0 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
                             >
+                                Services
+                                <svg
+                                    class="ml-1 h-4 w-4 transition-transform duration-200 peer-checked:rotate-180 md:group-hover:rotate-180"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M19 9l-7 7-7-7"
+                                    />
+                                </svg>
+                            </label>
+
+                            {{-- 3 Submenu: mobile = peer-checked; desktop = hover --}}
+                            <ul
+                                class="mt-1 hidden min-w-[220px] space-y-1 rounded-lg border border-gray-100 bg-white shadow-lg dark:bg-gray-800 dark:border-gray-700 z-20 peer-checked:block md:absolute md:left-0 md:top-full md:mt-2 md:hidden"
+                            >
+                                <li>
+                                    <a
+                                        href=""
+                                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 rounded-t-lg"
+                                    >
+                                        SKK Konstruksi
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href=""
+                                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                    >
+                                        SBU Jasa Konstruksi
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href=""
+                                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 rounded-b-lg"
+                                    >
+                                        Sertifikasi ISO
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a

@@ -57,4 +57,12 @@ class CompanyProfileController extends Controller
 
         return view('app.company.services.k3');
     }
+
+    public function iso()
+    {
+        SEOTools::setTitle('Sinergi Sertifikasi');
+        SEOTools::setDescription('This is my page description');
+
+        return view('app.company.services.iso');
+    }
 }
