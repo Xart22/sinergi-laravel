@@ -1,5 +1,4 @@
-@extends('app.layouts.app') @section('head') @vite(['resources/js/service.js'])
-@endsection @section('content')
+@extends('app.layouts.app') @section('head') @endsection @section('content')
 <section class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
     {{-- Hero --}}
     <div class="pt-4 pb-8">
