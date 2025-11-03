@@ -1,5 +1,4 @@
-@extends('app.layouts.app') @section('head') @vite(['resources/js/service.js'])
-@endsection @section('content')
+@extends('app.layouts.app') @section('head') @endsection @section('content')
 
 <div class="relative md:w-full mb-3">
     <img
