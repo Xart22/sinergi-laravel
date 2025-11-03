@@ -150,7 +150,7 @@
 
                             {{-- 3 Submenu: mobile = peer-checked; desktop = hover --}}
                             <ul
-                                class="mt-1 hidden min-w-[320px] space-y-1 rounded-lg border border-gray-100 bg-white shadow-lg dark:bg-gray-800 dark:border-gray-700 z-20 peer-checked:block md:absolute md:left-0 md:top-full md:mt-2 md:hidden md:overflow-hidden overflow-y-auto max-h-80 md:group-hover:block md:max-h-full"
+                                class="mt-1 hidden min-w-[320px] space-y-1 rounded-lg border border-gray-100 bg-white shadow-lg dark:bg-gray-800 dark:border-gray-700 z-20 peer-checked:block md:absolute md:left-0 md:top-full md:mt-2 md:hidden overflow-y-auto max-h-80 md:group-hover:block"
                             >
                                 <li>
                                     <a
