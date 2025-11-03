@@ -4,7 +4,13 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {!! SEO::generate() !!}
-        @vite(['resources/css/app.css','resources/js/app.js']) @yield('head')
+        @vite(['resources/css/app.css','resources/js/app.js'])
+        @if(!empty($globalJsonLd)) @foreach($globalJsonLd as $item)
+        <script type="application/ld+json">
+            {!! json_encode($item, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) !!}
+        </script>
+        @endforeach @endif @stack('head')
+
         <style>
             .whatsapp-float {
                 position: fixed;
@@ -164,7 +170,9 @@
                                 </li>
                                 <li>
                                     <a
-                                        href=""
+                                        href="{{
+                                            route('landing.service.iso')
+                                        }}"
                                         class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 rounded-b-lg"
                                     >
                                         Sertifikasi ISO

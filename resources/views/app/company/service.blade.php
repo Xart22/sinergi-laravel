@@ -1,7 +1,7 @@
 @extends('app.layouts.app') @section('head') @vite(['resources/js/service.js'])
 @endsection @section('content')
 
-<div class="relative md:w-full">
+<div class="relative md:w-full mb-3">
     <img
         src="{{ asset('assets/images/hero-service.png') }}"
         alt="hero image"
@@ -10,298 +10,126 @@
     <div
         class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center md:w-1/2 md:top-1/3 md:left-[22vw] md:transform-none"
     >
-        <h1 class="text-center text-white text-2xl md:text-6xl font-bold">
+        <h1 class="text-center text-white text-xl md:text-6xl font-bold">
             Our Services
         </h1>
-        <p class="text-center text-white text-2xl md:text-2xl">
-            Home / <span class="font-bold">Services</span>
+        <p class="text-center text-white text-xl md:text-2xl">
+            Home / Services / <span class="font-bold">ISO</span>
         </p>
     </div>
 </div>
 
-<div class="mx-auto p-3">
-    <!-- Tabs (Mobile) -->
+<section class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl font-semibold mb-6">Standar ISO yang Kami Tangani</h2>
 
-    <div class="relative">
-        <!-- subtle bottom border -->
+    <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        @foreach ($iso as $code => $item) @php $slug =
+        Str::of($code)->replace([':', '/', ' '], '-')->lower(); $waText =
+        rawurlencode("Halo, saya ingin konsultasi untuk {$code} -
+        {$item['title']}"); @endphp
 
-        <ul
-            id="tabs"
-            role="tablist"
-            class="flex snap-x snap-mandatory gap-2 overflow-x-auto pb-1 text-sm font-medium text-gray-500 dark:text-gray-400 [scrollbar-width:none]"
-            style="-ms-overflow-style: none"
+        <li
+            class="group relative rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden"
         >
-            <!-- each button: data-target -> panel id -->
-            <li class="shrink-0 snap-start">
-                <button
-                    id="tab-9001"
-                    data-target="panel-9001"
-                    role="tab"
-                    aria-controls="panel-9001"
-                    aria-selected="true"
-                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
-                >
-                    <span>ISO 9001: 2015 </span>
-                    <span
-                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
-                    ></span>
-                </button>
-            </li>
-            <li class="shrink-0 snap-start">
-                <button
-                    id="tab-14001"
-                    data-target="panel-14001"
-                    role="tab"
-                    aria-controls="panel-14001"
-                    aria-selected="false"
-                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
-                >
-                    <span>ISO 14001: 2015</span>
-                    <span
-                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
-                    ></span>
-                </button>
-            </li>
-            <li class="shrink-0 snap-start">
-                <button
-                    id="tab-45001"
-                    data-target="panel-45001"
-                    role="tab"
-                    aria-controls="panel-45001"
-                    aria-selected="false"
-                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
-                >
-                    <span>ISO 45001: 2018 </span>
-                    <span
-                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
-                    ></span>
-                </button>
-            </li>
-            <li class="shrink-0 snap-start">
-                <button
-                    id="tab-37001"
-                    data-target="panel-37001"
-                    role="tab"
-                    aria-controls="panel-37001"
-                    aria-selected="false"
-                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
-                >
-                    <span>ISO 37001: 2025 </span>
-                    <span
-                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
-                    ></span>
-                </button>
-            </li>
-            <li class="shrink-0 snap-start">
-                <button
-                    id="tab-22000"
-                    data-target="panel-22000"
-                    role="tab"
-                    aria-controls="panel-22000"
-                    aria-selected="false"
-                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
-                >
-                    <span>ISO 22000: 2018 </span>
-                    <span
-                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
-                    ></span>
-                </button>
-            </li>
-            <li class="shrink-0 snap-start">
-                <button
-                    id="tab-27001"
-                    data-target="panel-27001"
-                    role="tab"
-                    aria-controls="panel-27001"
-                    aria-selected="false"
-                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
-                >
-                    <span>ISO 27001: 2022 </span>
-                    <span
-                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
-                    ></span>
-                </button>
-            </li>
-            <li class="shrink-0 snap-start">
-                <button
-                    id="tab-22301"
-                    data-target="panel-22301"
-                    role="tab"
-                    aria-controls="panel-22301"
-                    aria-selected="false"
-                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
-                >
-                    <span>ISO 22301: 2019 </span>
-                    <span
-                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
-                    ></span>
-                </button>
-            </li>
-            <li class="shrink-0 snap-start">
-                <button
-                    id="tab-20000"
-                    data-target="panel-20000"
-                    role="tab"
-                    aria-controls="panel-20000"
-                    aria-selected="false"
-                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
-                >
-                    <span>ISO/IEC 20000-1:2018 </span>
-                    <span
-                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
-                    ></span>
-                </button>
-            </li>
-            <li class="shrink-0 snap-start">
-                <button
-                    id="tab-50001"
-                    data-target="panel-50001"
-                    role="tab"
-                    aria-controls="panel-50001"
-                    aria-selected="false"
-                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
-                >
-                    <span>ISO 50001: 2018 </span>
-                    <span
-                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
-                    ></span>
-                </button>
-            </li>
-            <li class="shrink-0 snap-start">
-                <button
-                    id="tab-13485"
-                    data-target="panel-13485"
-                    role="tab"
-                    aria-controls="panel-13485"
-                    aria-selected="false"
-                    class="tab-btn inline-flex items-center gap-2 rounded-full px-4 py-2 transition hover:text-gray-700 dark:hover:text-gray-200"
-                >
-                    <span>ISO 13485:2016 </span>
-                    <span
-                        class="tab-indicator hidden h-[2px] w-full rounded bg-gold"
-                    ></span>
-                </button>
-            </li>
-        </ul>
-    </div>
+            <div class="flex items-start gap-4 p-5">
+                {{-- emblem / icon (optional image) --}}
+                <div class="shrink-0">
+                    <img
+                        src="{{ asset('assets/images/service/'.$code.'.png') }}"
+                        alt="Ikon {{ $code }}"
+                        class="h-12 w-12 rounded-lg ring-1 ring-gray-200 dark:ring-gray-700 object-contain"
+                        onerror="this.style.display='none';"
+                        loading="lazy"
+                    />
+                    {{-- fallback svg jika gambar tidak ada --}}
+                    <svg
+                        class="h-12 w-12 text-gold/90 hidden"
+                        aria-hidden="true"
+                    >
+                        <use href="#shield-check"></use>
+                    </svg>
+                </div>
 
-    <!-- Panels -->
-    <div id="tab-panels" class="mt-3 space-y-2">
-        <div
-            id="panel-9001"
-            role="tabpanel"
-            aria-labelledby="tab-9001"
-            class="tab-panel rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
-        >
-            <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-                Konten SKK. Jelaskan layanan, syarat, timeline, dan CTA singkat.
-            </p>
-        </div>
+                <div class="min-w-0">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span
+                            class="inline-flex items-center rounded-full bg-gold/10 text-gold px-2 py-0.5 text-xs font-medium ring-1 ring-gold/30"
+                        >
+                            {{ $item["code"] }}
+                        </span>
+                    </div>
+                    <h3 class="text-base font-semibold leading-snug">
+                        {{ $item["title"] }}
+                    </h3>
+                    <p
+                        class="mt-2 text-sm text-gray-600 dark:text-gray-300 line-clamp-4"
+                    >
+                        {{ $item["description"] }}
+                    </p>
 
-        <div
-            id="panel-skttk"
-            role="tabpanel"
-            aria-labelledby="tab-skttk"
-            class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
-        >
-            <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-                Konten SKTTK. Tambahkan highlight benefit dan proses pengajuan.
-            </p>
-        </div>
+                    <div class="mt-4 flex flex-wrap items-center gap-2">
+                        <a
+                            href="{{ route('landing.service.iso.slug', ['slug' => Str::of($code)->replace([':', '/', ' '], '-')->lower()]) }}"
+                            class="inline-flex items-center rounded-lg border border-gray-300 dark:border-gray-700 px-3 py-1.5 text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+                        >
+                            Pelajari
+                            <svg
+                                class="ml-1.5 h-4 w-4"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M9 5l7 7-7 7"
+                                />
+                            </svg>
+                        </a>
+                        <a
+                            href="https://wa.me/6281313103366?text={{
+                                $waText
+                            }}"
+                            target="_blank"
+                            rel="noopener"
+                            class="inline-flex items-center rounded-lg bg-gold text-white px-3 py-1.5 text-sm hover:bg-gold/90 transition"
+                            aria-label="Konsultasi WhatsApp untuk {{ $code }}"
+                        >
+                            Konsultasi
+                            <svg
+                                class="ml-1.5 h-4 w-4"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.46 0 .09 5.37.09 12c0 2.11.57 4.11 1.56 5.84L0 24l6.33-1.63A11.86 11.86 0 0 0 12.06 24c6.6 0 11.97-5.37 11.97-12 0-3.19-1.26-6.19-3.51-8.52ZM12.06 21.6c-1.99 0-3.85-.57-5.41-1.65l-.39-.24-3.75.96.99-3.66-.25-.42A9.53 9.53 0 0 1 2.52 12c0-5.27 4.28-9.55 9.54-9.55 2.56 0 4.96 1 6.77 2.82a9.4 9.4 0 0 1 2.78 6.73c0 5.27-4.28 9.6-9.55 9.6Zm5.47-6.95c-.3-.15-1.75-.86-2.02-.96-.27-.1-.46-.15-.66.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.46-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.47.13-.62.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.59-.9-2.17-.24-.58-.48-.5-.66-.5h-.56c-.2 0-.52.08-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.88 1.2 3.08.15.2 2.1 3.21 5.07 4.5.71.31 1.26.49 1.69.63.71.22 1.35.19 1.86.12.57-.08 1.75-.72 2-1.42.25-.7.25-1.31.17-1.43-.08-.12-.27-.2-.57-.35Z"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-        <div
-            id="panel-smk3"
-            role="tabpanel"
-            aria-labelledby="tab-smk3"
-            class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
-        >
-            <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-                Konten K3 / SMK3. Sertakan ringkasan standar & audit.
-            </p>
-        </div>
+            {{-- dekorasi hover --}}
+            <div
+                class="pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-gold/0 via-gold/40 to-gold/0 opacity-0 group-hover:opacity-100 transition"
+            ></div>
+        </li>
+        @endforeach
+    </ul>
+</section>
 
-        <div
-            id="panel-sbu"
-            role="tabpanel"
-            aria-labelledby="tab-sbu"
-            class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
-        >
-            <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-                Konten SBU LPJK. Tuliskan kategori, kualifikasi, dan estimasi
-                durasi.
-            </p>
-        </div>
-
-        <div
-            id="panel-sbujptl"
-            role="tabpanel"
-            aria-labelledby="tab-sbujptl"
-            class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
-        >
-            <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-                Konten SBUJPTL. Jelaskan lingkup jasa dan dokumen yang
-                dibutuhkan.
-            </p>
-        </div>
-
-        <div
-            id="panel-iso"
-            role="tabpanel"
-            aria-labelledby="tab-iso"
-            class="tab-panel hidden rounded-xl bg-gray-50 p-4 shadow-sm dark:bg-gray-800"
-        >
-            <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-                Konten ISO. Cantumkan standar (9001/14001/45001) dan benefit
-                bisnis.
-            </p>
-        </div>
-    </div>
-</div>
-
-<!-- Minimal JS (vanilla) untuk toggle tab -->
-<script>
-    (function () {
-        const tabs = document.querySelectorAll("#tabs .tab-btn");
-        const panels = document.querySelectorAll("#tab-panels .tab-panel");
-
-        function activate(targetId) {
-            // de-activate all
-            tabs.forEach((btn) => {
-                btn.setAttribute("aria-selected", "false");
-                btn.classList.remove(
-                    "text-gray-900",
-                    "dark:text-white",
-                    "bg-gray-100",
-                    "dark:bg-gray-700"
-                );
-            });
-            panels.forEach((p) => p.classList.add("hidden"));
-            // activate current
-            const btn = document.querySelector(
-                `#tabs .tab-btn[data-target="${targetId}"]`
-            );
-            const panel = document.getElementById(targetId);
-            if (!btn || !panel) return;
-            btn.setAttribute("aria-selected", "true");
-            btn.classList.add(
-                "text-gray-900",
-                "dark:text-white",
-                "bg-gray-100",
-                "dark:bg-gray-700"
-            );
-            panel.classList.remove("hidden");
-        }
-
-        // click handlers
-        tabs.forEach((btn) => {
-            btn.addEventListener("click", () => activate(btn.dataset.target));
-        });
-
-        // set default (first tab) on load
-        const first = tabs[0];
-        if (first) activate(first.dataset.target);
-    })();
-</script>
+{{-- SVG sprite (opsional; taruh sekali di layout) --}}
+<svg width="0" height="0" class="hidden">
+    <symbol id="shield-check" viewBox="0 0 24 24" fill="currentColor">
+        <path
+            d="M12 2 4 6v6c0 5 3.4 9.3 8 10 4.6-.7 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 11.2l3.6-3.6L16 9l-5 6Z"
+        />
+    </symbol>
+</svg>
 
 <div class="container mx-auto relative p-3">
     <img

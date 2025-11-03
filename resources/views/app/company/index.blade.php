@@ -24,7 +24,7 @@
         class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-10 text-wrap md:px-36"
     >
         <div class="bg-white p-6 rounded-lg shadow-lg">
-            <a href="{{ route('landing.service') }}">
+            <a href="{{ route('landing.service.iso') }}">
                 <div class="flex items-center">
                     <img
                         src="{{ asset('assets/images/iso.png') }}"
@@ -48,48 +48,58 @@
             </a>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-lg">
-            <div class="flex items-center">
-                <img
-                    src="{{ asset('assets/images/skk-skktk.png') }}"
-                    class="w-20 h-20 object-contain"
-                    alt="SKA/SKK"
-                />
-                <div class="ml-3">
-                    <h1
-                        class="md:text-2xl text-md font-semibold mb-2 text-[#13554D] md:text-pretty"
-                    >
-                        Sertifikat Kompetensi Kerja ( SKK )
-                    </h1>
-                    <p class="text-gray-600 text-xs md:text-base text-wrap">
-                        Kami menyediakan layanan pengurusan Kami menyediakan
-                        layanan pembuatan dan perpanjangan Sertifikat Kompetensi
-                        Kerja ( SKK ) bagi tenaga ahli, memastikan kompetensi
-                        yang diakui dan siap mendukung proyek konstruksi.
-                    </p>
-                </div>
-            </div>
+            <a
+                href="{{
+                    route('landing.service.sertifikasi.show', 'skk-konstruksi')
+                }}"
+            >
+                <div class="flex items-center">
+                    <img
+                        src="{{ asset('assets/images/skk-skktk.png') }}"
+                        class="w-20 h-20 object-contain"
+                        alt="SKA/SKK"
+                    />
+                    <div class="ml-3">
+                        <h1
+                            class="md:text-2xl text-md font-semibold mb-2 text-[#13554D] md:text-pretty"
+                        >
+                            Sertifikat Kompetensi Kerja ( SKK )
+                        </h1>
+                        <p class="text-gray-600 text-xs md:text-base text-wrap">
+                            Kami menyediakan layanan pengurusan Kami menyediakan
+                            layanan pembuatan dan perpanjangan Sertifikat
+                            Kompetensi Kerja ( SKK ) bagi tenaga ahli,
+                            memastikan kompetensi yang diakui dan siap mendukung
+                            proyek konstruksi.
+                        </p>
+                    </div>
+                </div></a
+            >
         </div>
 
         <div class="bg-white p-6 rounded-lg shadow-lg">
-            <div class="flex items-center">
-                <img
-                    src="{{ asset('assets/images/sbu-lpjk.png') }}"
-                    class="w-20 h-20 object-contain"
-                    alt="SBU"
-                />
-                <div class="ml-3">
-                    <h1
-                        class="md:text-2xl text-md font-semibold mb-2 text-[#13554D] md:text-pretty"
-                    >
-                        Sertifikasi Badan Usaha Jasa Kontruksi ( SBUJK )
-                    </h1>
-                    <p class="text-gray-600 text-xs md:text-base text-wrap">
-                        Kami membantu meningkatkan kredibilitas dan kemampuan
-                        perusahaan Anda di sektor konstruksi dengan Sertifikat
-                        Badan Usaha Jasa Kontruksi ( SBUJK )
-                    </p>
+            <a href="{{ route('landing.service.sertifikasi.show', 'sbujk') }}">
+                <div class="flex items-center">
+                    <img
+                        src="{{ asset('assets/images/sbu-lpjk.png') }}"
+                        class="w-20 h-20 object-contain"
+                        alt="SBU"
+                    />
+                    <div class="ml-3">
+                        <h1
+                            class="md:text-2xl text-md font-semibold mb-2 text-[#13554D] md:text-pretty"
+                        >
+                            Sertifikasi Badan Usaha Jasa Kontruksi ( SBUJK )
+                        </h1>
+                        <p class="text-gray-600 text-xs md:text-base text-wrap">
+                            Kami membantu meningkatkan kredibilitas dan
+                            kemampuan perusahaan Anda di sektor konstruksi
+                            dengan Sertifikat Badan Usaha Jasa Kontruksi ( SBUJK
+                            )
+                        </p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-lg">
             <div class="flex items-center">
@@ -114,7 +124,7 @@
             </div>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-lg">
-            <a href="{{ route('landing.service.k3') }}">
+            <a href="{{ route('landing.service.sertifikasi.show', 'smk3') }}">
                 <div class="flex items-center">
                     <img
                         src="{{ asset('assets/images/k3.png') }}"
@@ -125,7 +135,7 @@
                         <h1
                             class="md:text-2xl text-md font-semibold mb-2 text-[#13554D] md:text-pretty"
                         >
-                            Sertifikasi K3 / SMK3
+                            Sertifikasi SMK3
                         </h1>
                         <p class="text-gray-600 text-xs md:text-base text-wrap">
                             Kami mendukung perusahaan dalam menciptakan
@@ -138,48 +148,65 @@
             >
         </div>
         <div class="bg-white p-6 rounded-lg shadow-lg">
-            <div class="flex items-center">
-                <img
-                    src="{{ asset('assets/images/sbu-lpjk.png') }}"
-                    class="w-20 h-20 object-contain"
-                    alt="SBUJPTL"
-                />
-                <div class="ml-3">
-                    <h1
-                        class="md:text-2xl text-md font-semibold mb-2 text-[#13554D] md:text-pretty"
-                    >
-                        Sertifikat Badan Usaha Jasa Penunjang Tenaga Listrik (
-                        SBUJPTL )
-                    </h1>
-                    <p class="text-gray-600 text-xs md:text-base text-wrap">
-                        Kami membantu dalam pengurusan Sertifikat Badan Usaha
-                        Jasa Penunjang Tenaga Listrik agar bisnis Anda dapat
-                        beroperasi sesuai dengan regulasi yang berlaku.
-                    </p>
+            <a
+                href="{{
+                    route('landing.service.sertifikasi.show', 'sbujptl')
+                }}"
+            >
+                <div class="flex items-center">
+                    <img
+                        src="{{ asset('assets/images/sbu-lpjk.png') }}"
+                        class="w-20 h-20 object-contain"
+                        alt="SBUJPTL"
+                    />
+                    <div class="ml-3">
+                        <h1
+                            class="md:text-2xl text-md font-semibold mb-2 text-[#13554D] md:text-pretty"
+                        >
+                            Sertifikat Badan Usaha Jasa Penunjang Tenaga Listrik
+                            ( SBUJPTL )
+                        </h1>
+                        <p class="text-gray-600 text-xs md:text-base text-wrap">
+                            Kami membantu dalam pengurusan Sertifikat Badan
+                            Usaha Jasa Penunjang Tenaga Listrik agar bisnis Anda
+                            dapat beroperasi sesuai dengan regulasi yang
+                            berlaku.
+                        </p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-lg">
-            <div class="flex items-center">
-                <img
-                    src="{{ asset('assets/images/skk-skktk.png') }}"
-                    class="w-20 h-20 object-contain"
-                    alt="SKTTK"
-                />
-                <div class="ml-3">
-                    <h1
-                        class="md:text-2xl text-md font-semibold mb-2 text-[#13554D] md:text-pretty"
-                    >
-                        Sertifikasi Kompetensi Tenaga Teknik Ketenagalistrikan
-                    </h1>
-                    <p class="text-gray-600 text-xs md:text-base text-wrap">
-                        Kami menyediakan layanan pengurusan Sertifikasi
-                        Kompetensi Tenaga Teknik Ketenaga listrikan (SKTTK)
-                        untuk memastikan tenaga teknik memiliki kompetensi yang
-                        sesuai dengan standar nasional.
-                    </p>
-                </div>
-            </div>
+            <a
+                href="{{
+                    route(
+                        'landing.service.sertifikasi.show',
+                        'skttk-ketenagalistrikan'
+                    )
+                }}"
+            >
+                <div class="flex items-center">
+                    <img
+                        src="{{ asset('assets/images/skk-skktk.png') }}"
+                        class="w-20 h-20 object-contain"
+                        alt="SKTTK"
+                    />
+                    <div class="ml-3">
+                        <h1
+                            class="md:text-2xl text-md font-semibold mb-2 text-[#13554D] md:text-pretty"
+                        >
+                            Sertifikasi Kompetensi Tenaga Teknik
+                            Ketenagalistrikan
+                        </h1>
+                        <p class="text-gray-600 text-xs md:text-base text-wrap">
+                            Kami menyediakan layanan pengurusan Sertifikasi
+                            Kompetensi Tenaga Teknik Ketenaga listrikan (SKTTK)
+                            untuk memastikan tenaga teknik memiliki kompetensi
+                            yang sesuai dengan standar nasional.
+                        </p>
+                    </div>
+                </div></a
+            >
         </div>
         <div class="bg-white p-6 rounded-lg shadow-lg">
             <div class="flex items-center">

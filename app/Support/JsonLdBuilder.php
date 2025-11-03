@@ -1,79 +1,154 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Support;
 
-use Illuminate\Http\Request;
-use Artesaos\SEOTools\Facades\SEOTools;
-use App\Support\JsonLdBuilder;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 
-
-class CompanyProfileController extends Controller
+class JsonLdBuilder
 {
-    public function index()
+    public static function organization(array $overrides = []): array
     {
-        SEOTools::setTitle('Sinergi Sertifikasi');
-        SEOTools::setDescription('This is my page description');
+        $base = [
+            '@context'     => 'https://schema.org',
+            '@type'        => 'Organization',
+            'name'         => config('app.name', 'Sinergi Sertifikasi'),
+            'url'          => url('/'),
+            'logo'         => asset('assets/logo/sinergi.png'),
+            'contactPoint' => [[
+                '@type'         => 'ContactPoint',
+                'telephone'     => '+62-813-1310-3366',
+                'contactType'   => 'customer service',
+                'areaServed'    => 'ID',
+                'availableLanguage' => ['id', 'en'],
+            ]],
+            'sameAs' => array_values(array_filter([
+                // isi jika ada:
+                // 'https://www.facebook.com/xxx',
+                // 'https://www.instagram.com/xxx',
+                // 'https://www.linkedin.com/company/xxx',
+            ])),
+        ];
 
-        return view('app.company.index');
+        return array_replace_recursive($base, $overrides);
+    }
+
+    public static function website(array $overrides = []): array
+    {
+        $base = [
+            '@context'     => 'https://schema.org',
+            '@type'        => 'WebSite',
+            'name'         => config('app.name', 'Sinergi Sertifikasi'),
+            'url'          => url('/'),
+            'inLanguage'   => 'id-ID',
+            'potentialAction' => [
+                '@type' => 'SearchAction',
+                'target' => url('/search') . '?q={query}',
+                'query-input' => 'required name=query',
+            ],
+        ];
+
+        return array_replace_recursive($base, $overrides);
+    }
+
+    public static function serviceFromIso(string $slug): ?array
+    {
+        $conf = self::findSlugInIsoCollection($slug);
+        if (!$conf) return null;
+
+        return [
+            '@context'   => 'https://schema.org',
+            '@type'      => 'Service',
+            'name'       => ($conf['code'] ?? '') . ' – ' . ($conf['title'] ?? ''),
+            'serviceType' => $conf['title'] ?? null,
+            'description' => self::shorten($conf['scope'] ?? ($conf['tagline'] ?? ''), 320),
+            'provider'   => [
+                '@type' => 'Organization',
+                'name'  => config('app.name', 'Sinergi Sertifikasi'),
+                'url'   => url('/'),
+                'logo'  => asset('assets/logo/sinergi.png'),
+                'contactPoint' => [[
+                    '@type'       => 'ContactPoint',
+                    'telephone'   => '+62-821-1917-4777',
+                    'contactType' => 'sales',
+                    'areaServed'  => 'ID',
+                ]],
+            ],
+            'areaServed' => 'Indonesia',
+            'audience'   => [
+                '@type' => 'Audience',
+                'audienceType' => implode(', ', $conf['audience'] ?? []),
+            ],
+            'brand'      => [
+                '@type' => 'Brand',
+                'name'  => config('app.name', 'Sinergi Sertifikasi'),
+            ],
+            'url'        => route('landing.service.iso.slug', ['slug' => $slug]),
+        ];
+    }
+
+    public static function breadcrumbForIso(string $slug): array
+    {
+        return [
+            '@context' => 'https://schema.org',
+            '@type'    => 'BreadcrumbList',
+            'itemListElement' => [
+                [
+                    '@type' => 'ListItem',
+                    'position' => 1,
+                    'name' => 'Home',
+                    'item' => url('/'),
+                ],
+                [
+                    '@type' => 'ListItem',
+                    'position' => 2,
+                    'name' => 'Services',
+                    'item' => url('/'),
+                ],
+                [
+                    '@type' => 'ListItem',
+                    'position' => 3,
+                    'name' => (self::findSlugInIsoCollection($slug)['code'] ?? 'Service'),
+                    'item' => route('landing.service.iso.slug', ['slug' => $slug]),
+                ],
+            ],
+        ];
+    }
+
+    public static function faqFromIso(string $slug): ?array
+    {
+        $faqs = Arr::get(config('iso'), $slug . '.faqs', []);
+        if (empty($faqs)) return null;
+
+        $entities = collect($faqs)->map(function ($f) {
+            return [
+                '@type' => 'Question',
+                'name'  => $f['q'] ?? '',
+                'acceptedAnswer' => [
+                    '@type' => 'Answer',
+                    'text'  => $f['a'] ?? '',
+                ],
+            ];
+        })->values()->all();
+
+        return [
+            '@context'   => 'https://schema.org',
+            '@type'      => 'FAQPage',
+            'mainEntity' => $entities,
+        ];
+    }
+
+    /** Helper ringkas teks aman untuk description */
+    protected static function shorten(?string $text, int $limit = 320): string
+    {
+        $text = trim((string) $text);
+        if (mb_strlen($text) <= $limit) return $text;
+        return mb_substr($text, 0, $limit - 1) . '…';
     }
 
 
-
-
-    public function about()
+    protected static function findSlugInIsoCollection(string $slug): ?array
     {
-        SEOTools::setTitle('Sinergi Sertifikasi');
-        SEOTools::setDescription('This is my page description');
-
-        return view('app.company.about');
-    }
-
-
-    public function contact()
-    {
-        SEOTools::setTitle('Sinergi Sertifikasi');
-        SEOTools::setDescription('This is my page description');
-
-        return view('app.company.contact');
-    }
-
-    public function service($slug)
-    {
-        $conf = config('kompetensi')[$slug] ?? null;
-
-        abort_if(!$conf, 404);
-
-        $title = ($conf['code'] ?? '') . ' – ' . ($conf['title'] ?? '');
-        $desc  = $conf['description'] ?? $conf['tagline'] ?? '';
-
-        SEOTools::setTitle($title);
-        SEOTools::setDescription($desc);
-
-        // JSON-LD khusus halaman (pakai builder yang sama dengan ISO)
-        $pageJsonLd = array_values(array_filter([
-            \App\Support\JsonLdBuilder::serviceFromArray($slug, $conf),   // method baru (lihat bawah)
-            \App\Support\JsonLdBuilder::breadcrumbGeneric([
-                ['name' => 'Home', 'url' => url('/')],
-                ['name' => 'Services', 'url' => url('/services')],
-                ['name' => $conf['code'], 'url' => route('landing.service.sertifikasi.show', $slug)],
-            ]),
-            !empty($conf['faqs']) ? \App\Support\JsonLdBuilder::faqFromArray($conf['faqs']) : null,
-        ]));
-
-        return view('app.company.services.kompetensi-show', compact('slug', 'conf', 'pageJsonLd'));
-    }
-
-    public function k3()
-    {
-        SEOTools::setTitle('Sinergi Sertifikasi');
-        SEOTools::setDescription('This is my page description');
-
-        return view('app.company.services.k3');
-    }
-
-    public function iso($slug)
-    {
-
         $iso = [
             // ==== 9001 ====
             'iso-9001-2015' => [
@@ -427,18 +502,67 @@ class CompanyProfileController extends Controller
                 ],
             ],
         ];
-        if ($slug && isset($iso[$slug])) {
-            $iso = $iso[$slug];
-            $pageJsonLd = array_values(array_filter([
-                JsonLdBuilder::serviceFromIso($slug),
-                JsonLdBuilder::breadcrumbForIso($slug),
-                JsonLdBuilder::faqFromIso($slug),
-            ]));
-            SEOTools::setTitle($iso['title'] . ' - Sinergi Sertifikasi');
-            SEOTools::setDescription($iso['description'] ?? 'This is my page description');
-            return view('app.company.services.service-iso', compact('iso', 'pageJsonLd'));
-        } else {
-            return view('app.company.service', compact('iso'));
+        return $iso[$slug] ?? null;
+    }
+    public static function serviceFromArray(string $slug, array $conf): array
+    {
+        $desc = $conf['description'] ?? $conf['tagline'] ?? '';
+        return [
+            '@context'    => 'https://schema.org',
+            '@type'       => 'Service',
+            'name'        => ($conf['code'] ?? $slug) . ' – ' . ($conf['title'] ?? ''),
+            'serviceType' => $conf['title'] ?? null,
+            'description' => self::shorten($desc, 320),
+            'provider'    => [
+                '@type' => 'Organization',
+                'name'  => config('app.name', 'Sinergi Sertifikasi'),
+                'url'   => url('/'),
+                'logo'  => asset('assets/logo/sinergi.png'),
+                'contactPoint' => [[
+                    '@type' => 'ContactPoint',
+                    'telephone' => '+62-821-1917-4777',
+                    'contactType' => 'sales',
+                    'areaServed' => 'ID',
+                ]],
+            ],
+            'areaServed'  => 'Indonesia',
+            'audience'    => [
+                '@type' => 'Audience',
+                'audienceType' => implode(', ', $conf['audience'] ?? []),
+            ],
+            'brand'       => ['@type' => 'Brand', 'name' => config('app.name', 'Sinergi Sertifikasi')],
+            'url'         => route('landing.service.sertifikasi.show', ['slug' => $slug]),
+        ];
+    }
+
+    public static function breadcrumbGeneric(array $items): array
+    {
+        $list = [];
+        foreach ($items as $i => $it) {
+            $list[] = [
+                '@type' => 'ListItem',
+                'position' => $i + 1,
+                'name' => $it['name'],
+                'item' => $it['url'],
+            ];
         }
+        return [
+            '@context' => 'https://schema.org',
+            '@type' => 'BreadcrumbList',
+            'itemListElement' => $list,
+        ];
+    }
+
+    public static function faqFromArray(array $faqs): array
+    {
+        return [
+            '@context' => 'https://schema.org',
+            '@type' => 'FAQPage',
+            'mainEntity' => collect($faqs)->map(fn($f) => [
+                '@type' => 'Question',
+                'name'  => $f['q'] ?? '',
+                'acceptedAnswer' => ['@type' => 'Answer', 'text' => $f['a'] ?? ''],
+            ])->values()->all(),
+        ];
     }
 }
