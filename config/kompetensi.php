@@ -335,5 +335,144 @@ return [
                 'a' => 'SBUJPTL khusus untuk jasa penunjang ketenagalistrikan (instalasi, O&M, pengujian, inspeksi, dsb), sedangkan SBUJK untuk jasa konstruksi bangunan/sipil/MEP.'
             ],
         ],
-    ]
+    ], // ===========================
+    // IUJPTL (Izin Usaha Jasa Penunjang Tenaga Listrik)
+    // ===========================
+    'iujptl' => [
+        'code' => 'IUJPTL',
+        'title' => 'Izin Usaha Jasa Penunjang Tenaga Listrik',
+        'tagline' => 'Perizinan operasional BUJPTL melalui OSS berbasis risiko.',
+        'description' => 'IUJPTL adalah izin berusaha bagi Badan Usaha Jasa Penunjang Tenaga Listrik yang diperlukan untuk melaksanakan kegiatan perencanaan, pemasangan, pengujian, operasi & pemeliharaan instalasi ketenagalistrikan. Layanan ini membantu sinkronisasi data legal, teknis, dan keselamatan untuk mendapatkan izin melalui OSS berbasis risiko.',
+        'audience' => ['PT/CV BUJPTL', 'Kontraktor/Instalatur Listrik', 'Konsultan/K3 Listrik', 'Operator & Maintenance Provider'],
+        'benefits' => [
+            'Pemenuhan legalitas operasional BUJPTL',
+            'Akses proyek/tender yang mensyaratkan izin aktif',
+            'Sinkron dengan OSS berbasis risiko & data SBUJPTL',
+            'Kepercayaan pemilik aset/PLN & regulator meningkat',
+            'Pendampingan dokumen teknis & K3 yang relevan',
+        ],
+        // (opsional) klasifikasi risiko/lingkup layanan; sesuaikan praktikmu
+        'scopes' => [
+            'Perencanaan & Konsultansi',
+            'Instalasi/Pemasangan (sesuai tegangan & lingkup izin)',
+            'Pengujian & Pemeriksaan (testing & commissioning)',
+            'Operation & Maintenance (O&M)',
+            'Inspeksi/K3 Ketenagalistrikan',
+        ],
+        // kualifikasi usaha sering mengacu pada data SBUJPTL – tampilkan ringan saja
+        'levels' => ['Kecil (K)', 'Menengah (M1/M2)', 'Besar (B1/B2)'],
+
+        // Persyaratan umum — dibuat generik & aman
+        'requirements' => [
+            'Akta Pendirian & Perubahan + SK Kemenkumham (terakhir)',
+            'NIB aktif di OSS & NPWP Badan Usaha',
+            'KBLI sesuai kegiatan penunjang ketenagalistrikan',
+            'Sertifikat Badan Usaha Jasa Penunjang Tenaga Listrik (SBUJPTL) yang sesuai lingkup',
+            'Penanggung jawab teknis & tenaga teknik bersertifikat (SKTTK/sertifikasi setara) sesuai subklasifikasi',
+            'Daftar peralatan utama/alat ukur (sertifikat kalibrasi bila dipersyaratkan)',
+            'Dokumen K3/SMK3 yang relevan (kebijakan, SOP, catatan pelatihan) bila dipersyaratkan',
+            'Alamat & bukti domisili kantor, foto papan nama',
+            'Kelengkapan administrasi tambahan di OSS (form komitmen, dll.)',
+        ],
+
+        'process' => [
+            'Konsultasi lingkup, subklasifikasi & kualifikasi usaha',
+            'Kompilasi & verifikasi dokumen legal, teknis, K3, dan data SBUJPTL',
+            'Pendaftaran & pengisian data melalui OSS berbasis risiko',
+            'Pemenuhan komitmen & verifikasi administrasi/teknis oleh instansi terkait',
+            'Penerbitan IUJPTL & aktivasi status izin untuk operasional/tender',
+        ],
+
+        'deliverables' => [
+            'Dokumen IUJPTL (sesuai format OSS/instansi terkait)',
+            'Ringkasan data izin: lingkup, subklasifikasi, masa berlaku',
+            'Panduan pemeliharaan izin & perubahan data (perluasan lingkup/penanggung jawab)',
+        ],
+
+        'faqs' => [
+            [
+                'q' => 'Apakah wajib punya SBUJPTL dulu?',
+                'a' => 'Umumnya ya. Data SBUJPTL (klasifikasi/subklasifikasi & kualifikasi) menjadi basis dalam perizinan IUJPTL di OSS.'
+            ],
+            [
+                'q' => 'Berapa lama proses IUJPTL?',
+                'a' => 'Tergantung kelengkapan dokumen & antrian verifikasi. Umumnya 2–6 minggu sejak dokumen lengkap dan komitmen terpenuhi.'
+            ],
+            [
+                'q' => 'Apakah tenaga SKTTK harus dilampirkan?',
+                'a' => 'Biasanya diminta. Jumlah/jenjang disesuaikan dengan lingkup layanan dan kualifikasi usaha yang diajukan.'
+            ],
+        ],
+    ], // ===========================
+    // Sertifikat Standar OSS RBA
+    // ===========================
+    'sertifikat-standar-oss-rba' => [
+        'code' => 'Sertifikat Standar OSS RBA',
+        'title' => 'Pendampingan Sertifikat Standar (OSS RBA)',
+        'tagline' => 'Penuhi komitmen standar berusaha sesuai tingkat risiko & KBLI.',
+        'description' => 'Sertifikat Standar pada OSS RBA adalah pemenuhan komitmen standar usaha untuk KBLI tertentu berdasarkan tingkat risiko (rendah, menengah, tinggi). Layanan ini membantu pemetaan KBLI, verifikasi dokumen, pemenuhan komitmen, hingga terbitnya Sertifikat Standar agar usaha sah beroperasi dan memenuhi syarat audit/tender.',
+        'audience' => ['PT/CV/Perseorangan', 'UMKM', 'Perusahaan Multi-Outlet', 'Konsultan/Operator Fasilitas', 'Kontraktor/Jasa Teknis'],
+        'benefits' => [
+            'Kepastian legalitas sesuai tingkat risiko & KBLI',
+            'Sinkron dengan NIB & perizinan berbasis risiko',
+            'Panduan pemenuhan komitmen yang terstruktur',
+            'Mempercepat proses operasional & kepatuhan',
+            'Siap audit instansi teknis/pelanggan',
+        ],
+        // contoh lingkup (generik—sesuaikan kebutuhan)
+        'scopes' => [
+            'Pemetaan KBLI & penilaian tingkat risiko',
+            'Checklist pemenuhan standar per KBLI',
+            'Dokumen teknis & K3 yang relevan',
+            'Dokumen lingkungan (SPPL/UKL-UPL/AMDAL) bila dipersyaratkan',
+            'Pengajuan & pemenuhan komitmen di OSS',
+            'Pendampingan verifikasi instansi teknis',
+        ],
+        // level tidak wajib, tapi sering terkait kategori risiko
+        'levels' => ['Risiko Rendah', 'Risiko Menengah', 'Risiko Tinggi'],
+
+        // Persyaratan umum (dibuat aman & generik lintas sektor)
+        'requirements' => [
+            'Akta Pendirian/Perubahan & SK Kemenkumham (terakhir)',
+            'NIB aktif & NPWP Badan Usaha/Pribadi',
+            'KBLI kegiatan usaha yang diajukan',
+            'Data lokasi usaha & bukti domisili (foto/papan nama)',
+            'Dokumen lingkungan (SPPL/UKL-UPL/AMDAL) bila dipersyaratkan',
+            'Dokumen teknis & K3/SMK3 yang relevan dengan KBLI',
+            'Tenaga kompeten/penanggung jawab teknis (bila diminta)',
+            'Daftar peralatan/sarana prasarana (bila diminta)',
+            'Form komitmen & pernyataan pemenuhan standar di OSS',
+        ],
+
+        'process' => [
+            'Konsultasi: pemetaan KBLI & tingkat risiko (RBA)',
+            'Kompilasi & verifikasi dokumen (legal, teknis, K3, lingkungan)',
+            'Pengisian data & pengajuan komitmen pada OSS',
+            'Pemenuhan komitmen/inspeksi/verifikasi instansi teknis (jika ada)',
+            'Penerbitan Sertifikat Standar & sinkron status izin',
+        ],
+
+        'deliverables' => [
+            'Sertifikat Standar (hasil OSS) untuk KBLI terkait',
+            'Ringkasan pemenuhan standar & catatan verifikasi',
+            'Panduan pemeliharaan izin & perubahan data (perluasan KBLI/outlet)',
+        ],
+
+        'faqs' => [
+            [
+                'q' => 'Apa bedanya NIB dan Sertifikat Standar?',
+                'a' => 'NIB adalah identitas berusaha. Sertifikat Standar adalah bukti pemenuhan komitmen standar untuk KBLI/risiko tertentu sehingga usaha sah beroperasi.'
+            ],
+            [
+                'q' => 'Berapa lama prosesnya?',
+                'a' => 'Bergantung kelengkapan dokumen & apakah perlu verifikasi lapangan. Umumnya 1–4 minggu setelah komitmen & dokumen lengkap.'
+            ],
+            [
+                'q' => 'Apakah semua KBLI butuh Sertifikat Standar?',
+                'a' => 'Tidak. Hanya KBLI dengan tingkat risiko tertentu. Kami bantu cek KBLI & kebutuhan komitmennya di OSS.'
+            ],
+        ],
+    ],
+
+
 ];

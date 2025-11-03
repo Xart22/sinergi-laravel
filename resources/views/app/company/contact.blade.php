@@ -19,7 +19,7 @@
     </div>
 </div>
 
-<div class="container mx-auto p-4 flex flex-col">
+<div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
     <div class="w-full max-w-8xl mx-auto mb-8">
         <h2 class="text-3xl md:text-5xl font-bold text-[#D1AC27] mb-6">
             Lokasi <span class="text-[#13554D]">Kami</span>
@@ -148,7 +148,7 @@
         </h2>
         <a
             class="mt-4 bg-[#25D366] text-white px-6 py-3 rounded-full hover:bg-[#1ebe5d] transition-colors duration-300 flex items-center justify-center mx-auto w-48 cursor-pointer"
-            href="https://wa.me/6282119174777"
+            href="https://wa.me/6281313103366"
             target="_blank"
             rel="noopener noreferrer"
         >

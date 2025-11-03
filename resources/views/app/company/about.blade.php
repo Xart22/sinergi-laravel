@@ -19,7 +19,7 @@
     </div>
 </div>
 
-<div class="container mx-auto p-4 flex flex-col">
+<div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
     <div
         class="flex flex-col md:flex-row items-center md:flex-wrap md:justify-between"
     >

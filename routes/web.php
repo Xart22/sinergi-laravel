@@ -23,7 +23,7 @@ Route::get('/contact', [CompanyProfileController::class, 'contact'])->name('land
 Route::get('/service/skk', [CompanyProfileController::class, 'skk'])->name('landing.service.skk');
 Route::get('/service/k3', [CompanyProfileController::class, 'k3'])->name('landing.service.k3');
 Route::get('/service/iso', [CompanyProfileController::class, 'iso'])->name('landing.service.iso');
-Route::get('/service/iso/{slug}', [CompanyProfileController::class, 'iso'])->name('landing.service.iso.slug');
+Route::get('/service/sertifikasi/iso/{slug}', [CompanyProfileController::class, 'sertifikasiIso'])->name('landing.service.iso.slug');
 Route::get('/service/sertifikasi/{slug}', [CompanyProfileController::class, 'service'])->name('landing.service.sertifikasi.show');
 
 Route::prefix('badan-usaha')->group(function () {

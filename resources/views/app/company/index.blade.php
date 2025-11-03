@@ -102,26 +102,35 @@
             </a>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-lg">
-            <div class="flex items-center">
-                <img
-                    src="{{ asset('assets/images/skk-skktk.png') }}"
-                    class="w-20 h-20 object-contain"
-                    alt="SKTTK"
-                />
-                <div class="ml-3">
-                    <h1
-                        class="md:text-2xl text-md font-semibold mb-2 text-[#13554D] md:text-pretty"
-                    >
-                        Sertifikat Standar OSS RBA
-                    </h1>
-                    <p class="text-gray-600 text-xs md:text-base text-wrap">
-                        Kami menyediakan layanan pengurusan Sertifikat Standar
-                        OSS RBA untuk membantu bisnis Anda memenuhi persyaratan
-                        perizinan berusaha secara online sesuai dengan regulasi
-                        yang berlaku.
-                    </p>
-                </div>
-            </div>
+            <a
+                href="{{
+                    route(
+                        'landing.service.sertifikasi.show',
+                        'sertifikat-standar-oss-rba'
+                    )
+                }}"
+            >
+                <div class="flex items-center">
+                    <img
+                        src="{{ asset('assets/images/skk-skktk.png') }}"
+                        class="w-20 h-20 object-contain"
+                        alt="SKTTK"
+                    />
+                    <div class="ml-3">
+                        <h1
+                            class="md:text-2xl text-md font-semibold mb-2 text-[#13554D] md:text-pretty"
+                        >
+                            Sertifikat Standar OSS RBA
+                        </h1>
+                        <p class="text-gray-600 text-xs md:text-base text-wrap">
+                            Kami menyediakan layanan pengurusan Sertifikat
+                            Standar OSS RBA untuk membantu bisnis Anda memenuhi
+                            persyaratan perizinan berusaha secara online sesuai
+                            dengan regulasi yang berlaku.
+                        </p>
+                    </div>
+                </div></a
+            >
         </div>
         <div class="bg-white p-6 rounded-lg shadow-lg">
             <a href="{{ route('landing.service.sertifikasi.show', 'smk3') }}">
@@ -209,26 +218,28 @@
             >
         </div>
         <div class="bg-white p-6 rounded-lg shadow-lg">
-            <div class="flex items-center">
-                <img
-                    src="{{ asset('assets/images/sbu-lpjk.png') }}"
-                    class="w-20 h-20 object-contain"
-                    alt="SKTTK"
-                />
-                <div class="ml-3">
-                    <h1
-                        class="md:text-2xl text-md font-semibold mb-2 text-[#13554D] md:text-pretty"
-                    >
-                        Izin Usaha Jasa Penunjang Tenaga Listrik ( IUJPTL )
-                    </h1>
-                    <p class="text-gray-600 text-xs md:text-base text-wrap">
-                        Kami menyediakan layanan pengurusan Izin Usaha Jasa
-                        Penunjang Tenaga Listrik (IUJPTL) untuk memastikan
-                        bisnis Anda beroperasi sesuai dengan regulasi yang
-                        berlaku.
-                    </p>
+            <a href="{{ route('landing.service.sertifikasi.show', 'iujptl') }}">
+                <div class="flex items-center">
+                    <img
+                        src="{{ asset('assets/images/sbu-lpjk.png') }}"
+                        class="w-20 h-20 object-contain"
+                        alt="SKTTK"
+                    />
+                    <div class="ml-3">
+                        <h1
+                            class="md:text-2xl text-md font-semibold mb-2 text-[#13554D] md:text-pretty"
+                        >
+                            Izin Usaha Jasa Penunjang Tenaga Listrik ( IUJPTL )
+                        </h1>
+                        <p class="text-gray-600 text-xs md:text-base text-wrap">
+                            Kami menyediakan layanan pengurusan Izin Usaha Jasa
+                            Penunjang Tenaga Listrik (IUJPTL) untuk memastikan
+                            bisnis Anda beroperasi sesuai dengan regulasi yang
+                            berlaku.
+                        </p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>

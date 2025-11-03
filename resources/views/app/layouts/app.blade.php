@@ -45,7 +45,7 @@
 
     <body>
         <a
-            href="https://wa.me/6281234567890"
+            href="https://wa.me/6281313103366"
             class="whatsapp-float"
             target="_blank"
             aria-label="Chat via WhatsApp"
@@ -150,24 +150,8 @@
 
                             {{-- 3 Submenu: mobile = peer-checked; desktop = hover --}}
                             <ul
-                                class="mt-1 hidden min-w-[220px] space-y-1 rounded-lg border border-gray-100 bg-white shadow-lg dark:bg-gray-800 dark:border-gray-700 z-20 peer-checked:block md:absolute md:left-0 md:top-full md:mt-2 md:hidden"
+                                class="mt-1 hidden min-w-[320px] space-y-1 rounded-lg border border-gray-100 bg-white shadow-lg dark:bg-gray-800 dark:border-gray-700 z-20 peer-checked:block md:absolute md:left-0 md:top-full md:mt-2 md:hidden md:overflow-hidden overflow-y-auto max-h-80 md:group-hover:block"
                             >
-                                <li>
-                                    <a
-                                        href=""
-                                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 rounded-t-lg"
-                                    >
-                                        SKK Konstruksi
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                                    >
-                                        SBU Jasa Konstruksi
-                                    </a>
-                                </li>
                                 <li>
                                     <a
                                         href="{{
@@ -176,6 +160,103 @@
                                         class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 rounded-b-lg"
                                     >
                                         Sertifikasi ISO
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="{{
+                                            route(
+                                                'landing.service.sertifikasi.show',
+                                                'skk-konstruksi'
+                                            )
+                                        }}"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 rounded-t-lg"
+                                    >
+                                        Sertifikat Kompetensi Kerja Konstruksi (
+                                        SKK )
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="{{
+                                            route(
+                                                'landing.service.sertifikasi.show',
+                                                'sbujk'
+                                            )
+                                        }}"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                    >
+                                        Sertifikasi Badan Usaha Jasa Konstruksi
+                                        ( SBUJK )
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="{{
+                                            route(
+                                                'landing.service.sertifikasi.show',
+                                                'sertifikat-standar-oss-rba'
+                                            )
+                                        }}"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                    >
+                                        Pendampingan Sertifikat Standar ( OSS
+                                        RBA )
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="{{
+                                            route(
+                                                'landing.service.sertifikasi.show',
+                                                'smk3'
+                                            )
+                                        }}"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                    >
+                                        Sertifikasi SMK3
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="{{
+                                            route(
+                                                'landing.service.sertifikasi.show',
+                                                'sbujptl'
+                                            )
+                                        }}"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                    >
+                                        Sertifikat Badan Usaha Jasa Penunjang
+                                        Tenaga Listrik ( SBUJPTL )
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="{{
+                                            route(
+                                                'landing.service.sertifikasi.show',
+                                                'skttk-ketenagalistrikan'
+                                            )
+                                        }}"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                    >
+                                        Sertifikasi Kompetensi Tenaga Teknik
+                                        Ketenagalistrikan ( SKTTK )
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="{{
+                                            route(
+                                                'landing.service.sertifikasi.show',
+                                                'skttk-ketenagalistrikan'
+                                            )
+                                        }}"
+                                        class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                    >
+                                        Izin Usaha Jasa Penunjang Tenaga Listrik
+                                        ( IUJPTL )
                                     </a>
                                 </li>
                             </ul>
